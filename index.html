@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GamifyZone</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Verdana;
+background:linear-gradient(180deg,#003b5c,#00a8cc,#00c896);
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:#001f3f;
+box-shadow:0 4px 10px black;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#00ffcc;
+}
+
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#00d9ff;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#00ffcc;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:90px 20px;
+}
+
+.hero h1{
+font-size:65px;
+text-shadow:3px 3px black;
+}
+
+.searchbar{
+margin-top:20px;
+}
+
+.searchbar input{
+padding:12px;
+width:250px;
+border:none;
+border-radius:5px;
+}
+
+.searchbar button{
+padding:12px;
+border:none;
+background:#00ffcc;
+cursor:pointer;
+}
+
+/* GAME GRID */
+
+.section{
+padding:50px;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#004d40;
+border:4px solid #00c896;
+padding:20px;
+transition:.3s;
+border-radius:6px;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px black;
+}
+
+/* FEATURED GAME */
+
+.featured{
+background:#002f3f;
+padding:40px;
+text-align:center;
+margin:40px;
+border-radius:10px;
+}
+
+.featured h2{
+color:#00ffcc;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#001f3f;
+margin-top:40px;
+}
+
+/* BACKGROUND */
+
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+/* Minecraft blocks */
+
+.block{
+position:absolute;
+width:50px;
+height:50px;
+background:linear-gradient(#4CAF50 50%,#8B4513 50%);
+border:3px solid #2e7d32;
+animation:blockFloat linear infinite;
+}
+
+@keyframes blockFloat{
+0%{transform:translateY(110vh) rotate(0)}
+100%{transform:translateY(-120px) rotate(360deg)}
+}
+
+/* Roblox cubes */
+
+.cube{
+position:absolute;
+width:40px;
+height:40px;
+background:#00eaff;
+animation:spin 5s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+
+/* GTA cars */
+
+.car{
+position:absolute;
+width:80px;
+height:30px;
+background:#00ffcc;
+border-radius:5px;
+box-shadow:0 0 15px #00ffcc;
+animation:drive linear infinite;
+}
+
+@keyframes drive{
+0%{transform:translateX(-150px)}
+100%{transform:translateX(120vw)}
+}
+
+/* Stars */
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:.2}
+50%{opacity:1}
+100%{opacity:.2}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+
+<header>
+<div class="logo">GamifyZone</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">News</a>
+<a href="#">Cheats</a>
+<a href="#">Tips</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>GamifyZone</h1>
+<p>Gaming News • Cheat Codes • Tips & Tricks</p>
+
+<div class="searchbar">
+<input placeholder="Search games or cheats">
+<button>Search</button>
+</div>
+</section>
+
+<section class="featured">
+<h2>Featured Game</h2>
+<p>Minecraft update introduces new mobs and structures.</p>
+</section>
+
+<section class="section">
+
+<h2>Latest Game News</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Minecraft Update</h3>
+<p>New caves and survival mechanics discovered.</p>
+</div>
+
+<div class="card">
+<h3>GTA Secrets</h3>
+<p>Hidden vehicles and money tricks revealed.</p>
+</div>
+
+<div class="card">
+<h3>Roblox Trends</h3>
+<p>Top Roblox games gaining millions of players.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2>Cheat Codes</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>GTA Cheats</h3>
+<p>Spawn vehicles and weapons instantly.</p>
+</div>
+
+<div class="card">
+<h3>Minecraft Commands</h3>
+<p>Control time, mobs and weather.</p>
+</div>
+
+<div class="card">
+<h3>Resident Evil Tricks</h3>
+<p>Hidden survival strategies.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 GamifyZone</p>
+</footer>
+
+<script>
+
+const bg=document.getElementById("bg");
+
+function block(){
+let b=document.createElement("div");
+b.className="block";
+b.style.left=Math.random()*100+"vw";
+b.style.animationDuration=(5+Math.random()*5)+"s";
+bg.appendChild(b);
+setTimeout(()=>b.remove(),10000);
+}
+
+function cube(){
+let c=document.createElement("div");
+c.className="cube";
+c.style.left=Math.random()*100+"vw";
+c.style.top=Math.random()*80+"vh";
+bg.appendChild(c);
+setTimeout(()=>c.remove(),8000);
+}
+
+function car(){
+let c=document.createElement("div");
+c.className="car";
+c.style.bottom=Math.random()*200+"px";
+c.style.animationDuration=(5+Math.random()*3)+"s";
+bg.appendChild(c);
+setTimeout(()=>c.remove(),10000);
+}
+
+function star(){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+bg.appendChild(s);
+setTimeout(()=>s.remove(),5000);
+}
+
+setInterval(block,400);
+setInterval(cube,1200);
+setInterval(car,2000);
+setInterval(star,200);
+
+</script>
+
+</body>
+</html>
